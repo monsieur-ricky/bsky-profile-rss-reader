@@ -5,11 +5,11 @@ import { RouterOutlet } from '@angular/router';
   selector: 'bpr-root',
   imports: [RouterOutlet],
   template: `
-    <h1>Welcome to {{title}}!</h1>
+    <h1 class="text-3xl font-bold text-center py-4">Welcome to {{ title }}!</h1>
 
     <router-outlet />
   `,
-  styles: [],
+  styles: []
 })
 export class AppComponent {
   title = 'bsky-profile-rss-reader';
