@@ -19,3 +19,8 @@ html {
 body {
   height: 100%; 
 }
+
+* {
+  scrollbar-color: #c850c0 transparent;
+  scrollbar-width: thin;
+}

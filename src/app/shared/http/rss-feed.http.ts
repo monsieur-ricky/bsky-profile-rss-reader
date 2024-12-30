@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RssFeed } from '../models/rss-feed.model';
+import { FeedData, Profile, RssFeed } from '../models/rss-feed.model';
 
 @Injectable({ providedIn: 'root' })
 export class RssFeedHttpService {
@@ -7,7 +7,7 @@ export class RssFeedHttpService {
   readonly #allowOrigins = 'https://api.allorigins.win/raw?url=';
   readonly #bskyRssUrl = 'https://bsky.app/profile/{id}/rss';
 
-  loadFeed(profile: string): Promise<RssFeed[]> {
+  loadFeed(profile: string): Promise<FeedData> {
     const url = `${this.#bskyRssUrl.replace('{id}', profile)}`;
 
     return fetch(`${this.#allowOrigins}${url}`)
@@ -15,8 +15,12 @@ export class RssFeedHttpService {
       .then((str) => new DOMParser().parseFromString(str, 'text/xml'))
       .then((data) => {
         const items = Array.from(data.querySelectorAll('item'));
-
-        return items.map(
+        const profile: Profile = {
+          description: data?.querySelector('description')?.textContent ?? 'n/a',
+          title: data?.querySelector('title')?.textContent ?? 'n/a',
+          link: data?.querySelector('link')?.textContent ?? 'n/a'
+        };
+        const feed = items.map(
           (item) =>
             ({
               link: item?.querySelector('link')?.textContent,
@@ -24,6 +28,13 @@ export class RssFeedHttpService {
               date: item?.querySelector('pubDate')?.textContent
             } as RssFeed)
         );
+
+        console.log(profile);
+
+        return {
+          profile,
+          feed
+        };
       });
   }
 }
