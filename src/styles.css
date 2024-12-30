@@ -3,3 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  color: #ffffff;
+  background-color: #c850c0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+}
