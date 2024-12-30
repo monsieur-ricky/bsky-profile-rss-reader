@@ -7,11 +7,11 @@ import { RssFeedHttpService } from './shared/http/rss-feed.http';
   selector: 'bpr-root',
   imports: [RouterOutlet, FeedListComponent],
   template: `
-    <h1 class="text-3xl font-bold text-center py-4">{{ title }}</h1>
-
-    <bpr-feed-list [feed]="feed()" />
-
-    <router-outlet />
+    <div class="container w-full md:w-[450px] mx-auto">
+      <h1 class="text-3xl font-bold text-center py-4">{{ title }}</h1>
+      <bpr-feed-list [feed]="feed()" />
+      <router-outlet />
+    </div>
   `,
   styles: []
 })

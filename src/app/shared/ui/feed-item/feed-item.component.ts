@@ -7,7 +7,7 @@ import { Component, computed, input } from '@angular/core';
   template: `
     <a
       target="_blank"
-      class="block rounded-xl backdrop-blur-sm bg-white/50 p-4 shadow-xl mb-7 hover:bg-white/80 hover:scale-[1.03] transition ease-in-out duration-300"
+      class="block rounded-xl backdrop-blur-sm bg-white/50 p-4 drop-shadow-md hover:drop-shadow-2xl mb-7 hover:bg-white/80 hover:scale-[1.03] transition ease-in-out duration-300"
       [href]="link()"
     >
       <h2 class="text-sm font-bold mb-2 text-slate-700">
