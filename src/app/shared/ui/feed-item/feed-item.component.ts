@@ -5,18 +5,16 @@ import { Component, computed, input } from '@angular/core';
   selector: 'bpr-feed-item',
   imports: [DatePipe],
   template: `
-    <div class="rounded-xl backdrop-blur-sm bg-white/50 p-4 shadow-xl mb-7">
-      <h2 class="text-sm font-bold mb-2 text-white">
+    <a
+      target="_blank"
+      class="block rounded-xl backdrop-blur-sm bg-white/50 p-4 shadow-xl mb-7 hover:bg-white/80 hover:scale-[1.03] transition ease-in-out duration-300"
+      [href]="link()"
+    >
+      <h2 class="text-sm font-bold mb-2 text-slate-700">
         {{ date() | date : 'dd-MM-yyyy hh:mm' }}
       </h2>
       <p class="text-slate-700" [innerHTML]="parsedDescription()"></p>
-      <a
-        target="_blank"
-        class="block mt-3 text-sm text-slate-700"
-        [href]="link()"
-        >View Post</a
-      >
-    </div>
+    </a>
   `,
   styles: ``
 })
@@ -34,7 +32,7 @@ export class FeedItemComponent {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(
       urlRegex,
-      `<a href="$1" target="_blank" class="${cssClass}">$1</a>`
+      `<br /> 🔗 <a href="$1" target="_blank" class="${cssClass}">$1</a>`
     );
   }
 }
