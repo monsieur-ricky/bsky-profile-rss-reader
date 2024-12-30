@@ -1,59 +1,46 @@
-# BskyProfileRssReader
+# BlueSky Profile RSS Reader
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+BlueSky Profile RSS Reader is a demo project application designed to fetch and display RSS feeds from BlueSky profiles. It allows users to enter a BlueSky profile and view their updates in a consolidated feed.
+This project focuses on using modern Angular practices and **not relying on Zone.js or RxJS**.
 
-## Development server
+## Key Features:
+- Load BlueSky post from a given profile handle or id.
+- Show selected profile description.
+- Zone.js-Free Angular: Demonstrates the use of Angular without Zone.js using only Signals.
+- No use of RxJS relying only on the new `resource` API for asynchronous requests.
+- All styles were created with Tailwind CSS.
 
-To start a local development server, run:
+## Live Demo
+Try out the live demo: [TODO]
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Node.js** (v20.15.0 or higher recommended)
+- **Angular CLI** (v19+)
+- A modern browser (e.g., Chrome, Edge, or Safari)
 
-## Code scaffolding
+## Running Demo Locally
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Clone the Repository:
+   ```bash
+   git clone git@github.com:monsieur-ricky/bsky-profile-rss-reader.git
+   ```
 
-```bash
-ng generate component component-name
-```
+2. Install Dependencies:
+   ```bash
+   cd bsky-profile-rss-reader
+   npm ci
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Start the development server:
+   ```bash
+   ng start
+   ```
 
-```bash
-ng generate --help
-```
+4. Open your browser and navigate to: [http://localhost:4200](http://localhost:4200)
 
-## Building
 
-To build the project run:
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request to suggest features, fix bugs, or enhance the demo.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Feel free to share your thoughts or suggest improvements!**
