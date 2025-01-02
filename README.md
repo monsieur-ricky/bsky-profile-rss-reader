@@ -17,6 +17,7 @@ Try out the live demo: [TODO]
 
 - **Node.js** (v20.15.0 or higher recommended)
 - **Angular CLI** (v19+)
+- **Tailwind CSS** (v3)
 - A modern browser (e.g., Chrome, Edge, or Safari)
 
 ## Running Demo Locally
