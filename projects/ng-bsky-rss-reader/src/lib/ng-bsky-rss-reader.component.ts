@@ -13,36 +13,30 @@ import {
   removeHandleFromProfile,
   wait
 } from './shared/utils/utils';
-import { InputFieldComponent } from './shared/ui/input-field/input-field.component';
 import { FeedListComponent } from './shared/ui/feed-list/feed-list.component';
 
 @Component({
   selector: 'lib-ng-bsky-rss-reader',
   imports: [FeedListComponent],
   template: `
-    <div class="h-screen w-screen flex items-center justify-center">
-      <div class="bg-white py-5 px-1 rounded-2xl shadow-lg h-[80vh] w-[500px]">
-        <section
-          id="profileDescription"
-          class="px-4 mb-2 h-[70px] overflow-hidden"
-        >
-          <h1 class="text-black text-md font-bold">
-            {{ profileInfo().title }}
-          </h1>
-          <p
-            class="text-black text-xs"
-            [innerHTML]="profileInfo().description"
-          ></p>
-        </section>
-
-        <section
-          id="feedList"
-          class="relative p-4 overflow-y-auto h-[calc(100%-70px)]"
-        >
-          <bpr-feed-list [feed]="feed()" [loading]="loading()" />
-        </section>
+    <section class="bg-white py-5 px-1 rounded-2xl shadow-lg h-full w-full">
+      <div id="profileDescription" class="px-4 mb-2 h-[70px] overflow-hidden">
+        <h1 class="text-black text-md font-bold">
+          {{ profileInfo().title }}
+        </h1>
+        <p
+          class="text-black text-xs"
+          [innerHTML]="profileInfo().description"
+        ></p>
       </div>
-    </div>
+
+      <div
+        id="feedList"
+        class="relative p-4 overflow-y-auto h-[calc(100%-70px)]"
+      >
+        <bpr-feed-list [feed]="feed()" [loading]="loading()" />
+      </div>
+    </section>
   `,
   styles: `
     * {
@@ -85,7 +79,7 @@ export class NgBskyRssReaderComponent {
 
     return {
       title: removeHandleFromProfile(profile?.title ?? ''),
-      description: formatDescription(profile?.description ?? ''),
+      description: profile?.description,
       link: profile?.link ?? ''
     };
   });
