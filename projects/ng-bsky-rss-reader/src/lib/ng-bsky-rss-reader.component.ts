@@ -24,7 +24,7 @@ import { PreloaderComponent } from './shared/ui/preloader/preloader.component';
       <div
         #profileDescription
         id="profileDescription"
-        class="px-4 mb-2 max-h-20 overflow-hidden"
+        class="px-4 mb-2 max-h-24 overflow-hidden"
       >
         <h1 class="text-black text-md font-bold">
           {{ profileInfo().title }}
