@@ -29,8 +29,6 @@ export class RssFeedHttpService {
             } as RssFeed)
         );
 
-        console.log(profile);
-
         return {
           profile,
           feed

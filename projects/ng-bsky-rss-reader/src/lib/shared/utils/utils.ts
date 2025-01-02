@@ -10,8 +10,22 @@ export const formatDescription = (text: string): string => {
     .replace(/\n/g, '<br />');
 };
 
-export const removeHandleFromProfile = (text: string): string =>
-  text.replace(/@([^-]+)-/g, '');
+export const formatHandle = (text: string | undefined): string | undefined => {
+  if (!text) {
+    return;
+  }
+
+  const regex = /^@([\w.]+)\s*-\s*(.+)$/;
+  const match = regex.exec(text);
+
+  if (!match) {
+    return text;
+  }
+
+  const [, handle, name] = match;
+
+  return `${name.trim()} (@${handle})`;
+};
 
 export const wait = (ms: number, abortSignal?: AbortSignal): Promise<void> => {
   return new Promise((resolve, reject) => {

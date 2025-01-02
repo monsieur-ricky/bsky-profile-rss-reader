@@ -12,7 +12,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
 
       @for (item of feed() ; track item.link) {
       <bpr-feed-item
-        class="block mb-5 last:mb-0"
+        class="block mb-4 last:mb-0"
         [date]="item.date"
         [description]="item.description"
         [link]="item.link"

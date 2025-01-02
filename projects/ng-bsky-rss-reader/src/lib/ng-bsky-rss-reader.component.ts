@@ -8,11 +8,7 @@ import {
 } from '@angular/core';
 import { RssFeedHttpService } from './shared/http/rss-feed.http';
 import { FeedData } from './shared/models/rss-feed.model';
-import {
-  formatDescription,
-  removeHandleFromProfile,
-  wait
-} from './shared/utils/utils';
+import { formatDescription, formatHandle, wait } from './shared/utils/utils';
 import { FeedListComponent } from './shared/ui/feed-list/feed-list.component';
 
 @Component({
@@ -78,9 +74,9 @@ export class NgBskyRssReaderComponent {
     const profile = this.feedResource.value()?.profile;
 
     return {
-      title: removeHandleFromProfile(profile?.title ?? ''),
+      title: formatHandle(profile?.title),
       description: profile?.description,
-      link: profile?.link ?? ''
+      link: profile?.link
     };
   });
 }
