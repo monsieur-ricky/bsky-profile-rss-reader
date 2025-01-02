@@ -12,10 +12,12 @@ import { RssFeedHttpService } from './shared/http/rss-feed.http';
 import { FeedData } from './shared/models/rss-feed.model';
 import { formatHandle } from './shared/utils/utils';
 import { FeedListComponent } from './shared/ui/feed-list/feed-list.component';
+import { debounce } from './shared/utils/debounce';
+import { PreloaderComponent } from './shared/ui/preloader/preloader.component';
 
 @Component({
   selector: 'lib-ng-bsky-rss-reader',
-  imports: [FeedListComponent],
+  imports: [FeedListComponent, PreloaderComponent],
   template: `
     <section class="bg-white py-5 px-1 rounded-2xl shadow-lg h-full w-full">
       @if (profileInfo().title) {
@@ -41,7 +43,7 @@ import { FeedListComponent } from './shared/ui/feed-list/feed-list.component';
         <bpr-feed-list [feed]="feed()" [loading]="loading()" />
       </div>
       } @else {
-      <span class="text-black text-md font-bold">No profile found</span>
+      <bpr-preloader [loading]="loading()" />
       }
     </section>
   `,
@@ -71,11 +73,9 @@ export class NgBskyRssReaderComponent {
 
   feedResource = resource({
     request: this.profileId,
-    loader: async (param) => {
-      //TODO: Debouncing: 500 ms
-
+    loader: debounce((param) => {
       return this.#http.loadFeed(param.request);
-    }
+    }, 500)
   });
 
   loading = this.feedResource.isLoading;

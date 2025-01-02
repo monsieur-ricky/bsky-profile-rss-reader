@@ -26,20 +26,3 @@ export const formatHandle = (text: string | undefined): string | undefined => {
 
   return `${name.trim()} (@${handle})`;
 };
-
-export const wait = (ms: number, abortSignal?: AbortSignal): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    const timeout = setTimeout(resolve, ms);
-
-    if (abortSignal) {
-      abortSignal.addEventListener(
-        'abort',
-        () => {
-          clearTimeout(timeout);
-          reject(new Error('Aborted'));
-        },
-        { once: true }
-      );
-    }
-  });
-};
