@@ -101,7 +101,7 @@
       "projectType": "library",
       "root": "projects/ng-bsky-rss-reader",
       "sourceRoot": "projects/ng-bsky-rss-reader/src",
-      "prefix": "lib",
+      "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

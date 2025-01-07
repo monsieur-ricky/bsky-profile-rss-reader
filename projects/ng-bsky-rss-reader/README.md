@@ -14,14 +14,74 @@ This project focuses on using modern Angular practices and **not relying on Zone
 Try out the live demo: [TODO]
 
 ## Prerequisites
-
 - **Node.js** (v20.15.0 or higher recommended)
 - **Angular CLI** (v19+)
 - **Tailwind CSS** (v3)
 - A modern browser (e.g., Chrome, Edge, or Safari)
 
-## Running Demo Locally
-[TODO]
+## Installation
+1. Install the library using NPM:
+    ```bash
+    npm install ng-bsky-rss-reader
+    ```
+
+2. Install Tailwind CSS and dependencies (skip if already present in the project):
+    ```bash
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init
+    ```
+
+3. Update `tailwind.config.js` file to include `ng-bsky-rss-reader` files in the content array:
+    ```js
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+      content: [
+        "./src/**/*.{html,ts}",
+        "./node_modules/ng-bsky-rss-reader/**/*.{html,js,mjs}", // Add this line
+      ],
+      theme: {
+        extend: {},
+      },
+      plugins: [],
+    };
+    ```
+
+## Usage
+1. Import the library in your component:
+    ```typescript
+    import { BskyRssReaderComponent } from 'ng-bsky-rss-reader';
+
+    @Component({
+      selector: 'app-root',
+      imports: [BskyRssReaderComponent],
+    })
+    ```
+
+2. Add the component to your template:
+    ```html
+    <ng-bsky-rss-reader profileId="your.bsky.handle" />
+    ```
+
+3. Full example:
+    ```typescript
+    import { Component, signal } from '@angular/core';
+    import { BskyRssReaderComponent } from 'ng-bsky-rss-reader';
+
+    @Component({
+      selector: 'bpr-root',
+      imports: [BskyRssReaderComponent],
+      template: `
+        <div class="h-full w-screen flex items-center justify-center">
+          <div class="h-[500px] w-[500px]">
+            <ng-bsky-rss-reader [profileId]="profile()" />
+          </div>
+        </div>
+      `
+    })
+    export class AppComponent {
+      profile = signal('ricky.pt');
+    }
+    ```
 
 
 ## Contributing

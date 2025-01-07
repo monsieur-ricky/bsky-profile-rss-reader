@@ -4,19 +4,17 @@ import {
   ElementRef,
   inject,
   model,
-  output,
   resource,
   viewChild
 } from '@angular/core';
 import { RssFeedHttpService } from './shared/http/rss-feed.http';
-import { FeedData } from './shared/models/rss-feed.model';
 import { formatHandle } from './shared/utils/utils';
 import { FeedListComponent } from './shared/ui/feed-list/feed-list.component';
 import { debounce } from './shared/utils/debounce';
 import { PreloaderComponent } from './shared/ui/preloader/preloader.component';
 
 @Component({
-  selector: 'lib-ng-bsky-rss-reader',
+  selector: 'ng-bsky-rss-reader',
   imports: [FeedListComponent, PreloaderComponent],
   template: `
     <section class="bg-white py-5 px-1 rounded-2xl shadow-lg h-full w-full">
@@ -62,12 +60,10 @@ import { PreloaderComponent } from './shared/ui/preloader/preloader.component';
     }
   `
 })
-export class NgBskyRssReaderComponent {
+export class BskyRssReaderComponent {
   readonly #http = inject(RssFeedHttpService);
 
   profileId = model.required<string>();
-
-  feedData = output<FeedData | undefined>();
 
   profileDescription = viewChild<ElementRef>('profileDescription');
 
