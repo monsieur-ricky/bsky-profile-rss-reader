@@ -11,7 +11,7 @@ This project focuses on using modern Angular practices and **not relying on Zone
 - All styles were created with Tailwind CSS.
 
 ## Live Demo
-Try out the live demo: [TODO]
+Try out the live demo: [https://monsieur-ricky.github.io/bsky-profile-rss-reader/](https://monsieur-ricky.github.io/bsky-profile-rss-reader/)
 
 ## Prerequisites
 - **Node.js** (v20.15.0 or higher recommended)
