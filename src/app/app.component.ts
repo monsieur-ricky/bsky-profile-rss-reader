@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { InputFieldComponent } from './shared/ui/input-field/input-field.component';
-import { BskyRssReaderComponent } from 'ng-bsky-rss-reader';
+import { BskyRssReaderComponent } from '../../projects/ng-bsky-rss-reader/src/public-api';
 
 @Component({
   selector: 'bpr-root',

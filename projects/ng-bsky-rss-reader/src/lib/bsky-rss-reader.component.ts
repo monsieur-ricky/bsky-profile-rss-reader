@@ -61,7 +61,7 @@ import { PreloaderComponent } from './shared/ui/preloader/preloader.component';
   `
 })
 export class BskyRssReaderComponent {
-  readonly #http = inject(RssFeedHttpService);
+  private readonly http = inject(RssFeedHttpService);
 
   profileId = model.required<string>();
 
@@ -70,7 +70,7 @@ export class BskyRssReaderComponent {
   feedResource = resource({
     request: this.profileId,
     loader: debounce((param) => {
-      return this.#http.loadFeed(param.request);
+      return this.http.loadFeed(param.request);
     }, 500)
   });
 
