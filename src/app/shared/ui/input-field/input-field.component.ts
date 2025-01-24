@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
       <input
         id="value"
         name="value"
-        class="bg-white/50 drop-shadow-md focus:border-none hover:bg-white/80 text-slate-700 rounded-md w-full h-9 p-2 focus:outline-none transition ease-in-out duration-300"
+        class="bg-white/50 drop-shadow-md focus:border-none hover:bg-white/80 text-slate-700 rounded-md w-full h-9 p-2 focus:outline-hidden transition ease-in-out duration-300"
         [(ngModel)]="value"
       />
     </div>

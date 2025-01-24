@@ -1,10 +1,11 @@
 {
   "name": "ng-bsky-rss-reader",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A BlueSky RSS Feed Reader for Angular Apps",
   "peerDependencies": {
-    "@angular/common": "^19.0.5",
-    "@angular/core": "^19.0.5"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "tailwindcss": "^4.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
