@@ -13,10 +13,12 @@ This project focuses on using modern Angular practices and **not relying on Zone
 ## Live Demo
 Try out the live demo: [https://monsieur-ricky.github.io/bsky-profile-rss-reader/](https://monsieur-ricky.github.io/bsky-profile-rss-reader/)
 
+## NOTE: Angular (at v19.1.3) isn't fully compatible with TailwindCSS v4. For that reason, it's necessary to add `--force` or `--legacy-peer-deps` when installing the NPM dependencies, i.e., via `npm install`. 
+
 ## Prerequisites
 - **Node.js** (v20.15.0 or higher recommended)
 - **Angular CLI** (v19+)
-- **Tailwind CSS** (v3)
+- **Tailwind CSS** (v4)
 - A modern browser (e.g., Chrome, Edge, or Safari)
 
 ## Running Demo Locally
@@ -29,7 +31,7 @@ Try out the live demo: [https://monsieur-ricky.github.io/bsky-profile-rss-reader
 2. Install Dependencies:
    ```bash
    cd bsky-profile-rss-reader
-   npm ci
+   npm i --force
    ```
 
 3. Start the development server:
