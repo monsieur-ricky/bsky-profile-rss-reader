@@ -16,34 +16,34 @@ Try out the live demo: [https://monsieur-ricky.github.io/bsky-profile-rss-reader
 ## Prerequisites
 - **Node.js** (v20.15.0 or higher recommended)
 - **Angular CLI** (v19+)
-- **Tailwind CSS** (v3)
+- **Tailwind CSS** (v4)
 - A modern browser (e.g., Chrome, Edge, or Safari)
 
+## NOTE: Angular (at v19.1.3) isn't fully compatible with TailwindCSS v4. For that reason, it's necessary to add `--force` or `--legacy-peer-deps` when installing the NPM dependencies, i.e., via `npm install`. 
+
 ## Installation
-1. Install the library using NPM:
+1. Install Tailwind CSS and dependencies (more information in the [official installation documentation](https://tailwindcss.com/docs/installation/framework-guides/angular)). Jump to step 4 if Tailwind v4 is already present in the project:
     ```bash
-    npm install ng-bsky-rss-reader
+    npm install tailwindcss @tailwindcss/postcss postcss --force
     ```
 
-2. Install Tailwind CSS and dependencies (skip if already present in the project):
-    ```bash
-    npm install -D tailwindcss postcss autoprefixer
-    npx tailwindcss init
+2. Create a `.postcssrc.json` file in the root of your project and add the `@tailwindcss/postcss` plugin to your PostCSS configuration.:
+    ```json
+    {
+      "plugins": {
+        "@tailwindcss/postcss": {}
+      }
+    }
     ```
 
-3. Update `tailwind.config.js` file to include `ng-bsky-rss-reader` files in the content array:
-    ```js
-    /** @type {import('tailwindcss').Config} */
-    module.exports = {
-      content: [
-        "./src/**/*.{html,ts}",
-        "./node_modules/ng-bsky-rss-reader/**/*.{html,js,mjs}", // Add this line
-      ],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    };
+3. Import Tailwind CSS to your main styles file (e.g., `src/styles.css`):
+    ```css
+    @import "tailwindcss";
+    ```
+
+4. Install the library using NPM:
+    ```bash
+    npm install ng-bsky-rss-reader --legacy-peer-deps
     ```
 
 ## Usage
